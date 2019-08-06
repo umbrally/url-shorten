@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <form action="/" method="POST" class="col-12">
+      <div class="form-group">
+        <label for="originURL">輸入原始網址</label>
+        <input type="text" class="form-control" id="originURL" name="url" aria-describedby="originalURL"
+          placeholder="https://.....">
+        <button class="btn btn-primary mt-2">確認</button>
+      </div>
+    </form>
+    {{#if errorsMessages}}
+    {{#each errorsMessages}}
+    <div class="alert alert-danger col-12" role="alert">
+      <span>{{this.message}}</span>
+    </div>
+    {{/each}}
+    {{/if}}
+    {{#if randomCode}}
+    <div class="col-12 bg-light">
+      <h6 class="text-success">縮網址如下:</h6>
+      <h3> http://localhost:3000/{{randomCode}} </h3>
+    </div>
+    {{/if}}
+  </div>
+</div>
