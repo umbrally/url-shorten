@@ -82,7 +82,7 @@ app.get('/:randomCode', (req, res) => {
   })
 })
 
-app.listen(process.env.PORT || port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('web server is running')
 })
 
