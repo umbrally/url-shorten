@@ -9,7 +9,7 @@ const { validationResult } = require('express-validator')
 
 const port = 3000
 // 連線mongoDB
-mongoose.connect('mongodb://localhost/shortURL', { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/shortURL', { useNewUrlParser: true, useCreateIndex: true })
 const db = mongoose.connection
 
 
@@ -82,7 +82,7 @@ app.get('/:randomCode', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || port, () => {
   console.log('web server is running')
 })
 
