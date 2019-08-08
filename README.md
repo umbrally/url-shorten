@@ -3,6 +3,7 @@
 URL shorten app
 
 # Snapshot
+![image](https://github.com/umbrally/url-shorten/blob/master/snap_shot.PNG)
 
 ## Getting Started
 
