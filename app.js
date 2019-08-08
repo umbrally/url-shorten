@@ -74,15 +74,15 @@ app.post('/', urlValidator, (req, res) => {
   }
 })
 
-// app.get('/:randomCode', (req, res) => {
-//   URL.findOne({ randomCode: req.params.randomCode }, (err, url) => {
-//     if (err) {
-//       console.log(err)
-//       return res.status(422).json(err)
-//     }
-//     return res.redirect(`${url.originURL}`)
-//   })
-// })
+app.get('/:randomCode', (req, res) => {
+  URL.findOne({ randomCode: req.params.randomCode }, (err, tt) => {
+    if (err) {
+      console.log(err)
+      return res.status(422).json(err)
+    }
+    return res.redirect(`${tt.originURL}`)
+  })
+})
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('web server is running')
