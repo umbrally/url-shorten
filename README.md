@@ -34,7 +34,8 @@ $ npm install
 ```
 $ npm run dev
 ```
-
+4. heroku
+* https://pure-ocean-86993.herokuapp.com/
 
 ## Features
 
