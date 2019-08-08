@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/', urlValidator, (req, res) => {
   // 使用express-validator的validationResult收集錯誤訊息，若使用者輸入非網址或空白則提醒使用者錯誤訊息
+  console.log(req.body.url)
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     console.log('there are something wrong')
@@ -58,6 +59,7 @@ app.post('/', urlValidator, (req, res) => {
           originURL: req.body.url,
           randomCode: randomCode
         })
+        console.log('aaaaaaaaa', req.body.url)
         url.save(err => {
           if (err) {
             console.log(err)
@@ -72,15 +74,15 @@ app.post('/', urlValidator, (req, res) => {
   }
 })
 
-app.get('/:randomCode', (req, res) => {
-  URL.findOne({ randomCode: req.params.randomCode }, (err, url) => {
-    if (err) {
-      console.log(err)
-      return res.status(422).json(err)
-    }
-    return res.redirect(`${url.originURL}`)
-  })
-})
+// app.get('/:randomCode', (req, res) => {
+//   URL.findOne({ randomCode: req.params.randomCode }, (err, url) => {
+//     if (err) {
+//       console.log(err)
+//       return res.status(422).json(err)
+//     }
+//     return res.redirect(`${url.originURL}`)
+//   })
+// })
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('web server is running')
