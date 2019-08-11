@@ -77,12 +77,12 @@ app.post('/', urlValidator, (req, res) => {
 })
 
 app.get('/:randomCode', (req, res) => {
-  URL.findOne({ randomCode: req.params.randomCode }, (err, url) => {
+  URL.findOne({ randomCode: req.params.randomCode }, (err, record) => {
     if (err) {
       console.log(err)
       return res.status(422).json(err)
     }
-    return res.redirect(`${url.originURL}`)
+    return res.redirect(`${record.originURL}`)
   })
 })
 
