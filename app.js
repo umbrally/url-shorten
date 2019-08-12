@@ -77,7 +77,7 @@ app.post('/', urlValidator, (req, res) => {
 })
 
 app.get('/:randomCode', (req, res) => {
-  if (!randomCode) { return res.redirect('/') }
+  if (!req.params.randomCode) { return res.redirect('/') }
   else {
     URL.findOne({ randomCode: req.params.randomCode }, (err, record) => {
       console.log('a', record)
