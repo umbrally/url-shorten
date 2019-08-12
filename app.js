@@ -80,7 +80,7 @@ app.get('/:randomCode', (req, res) => {
   URL.findOne({ randomCode: req.params.randomCode }, (err, record) => {
     console.log('a', record)
     // const origin = record.originURL
-    console.log('b', origin)
+    // console.log('b', origin)
     if (err) {
       console.log(err)
       return res.status(422).json(err)
