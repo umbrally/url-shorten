@@ -6,9 +6,9 @@ const bodyParser = require('body-parser')
 const URL = require('./models/url.js')
 const { urlValidator } = require('./lib/validator.js')
 const { validationResult } = require('express-validator')
-let root = 'https://pure-ocean-86993.herokuapp.com/'
+let root = 'https://pure-ocean-86993.herokuapp.com'
 if (process.env.NODE_ENV !== 'production') {
-  root = 'localhost:3000/'
+  root = 'localhost:3000'
 }
 
 // const port = 3000
