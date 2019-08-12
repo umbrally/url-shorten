@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
   root = 'localhost:3000/'
 }
 
-const port = 3000
+// const port = 3000
 // 連線mongoDB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/shortURL', { useNewUrlParser: true, useCreateIndex: true })
 const db = mongoose.connection
@@ -78,7 +78,9 @@ app.post('/', urlValidator, (req, res) => {
 
 app.get('/:randomCode', (req, res) => {
   URL.findOne({ randomCode: req.params.randomCode }, (err, record) => {
+    console.log('a', record)
     const origin = record.originURL
+    console.log('b', origin)
     if (err) {
       console.log(err)
       return res.status(422).json(err)
