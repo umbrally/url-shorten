@@ -30,6 +30,7 @@ db.once('open', () => {
 })
 
 app.use('/', require('./routes/home.js'))
+app.use('/url', require('./routes/url.js'))
 
 app.listen(process.env.PORT || 3000, "0.0.0.0", () => {
   console.log('web server is running', process.env.PORT)
