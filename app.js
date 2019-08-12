@@ -85,8 +85,8 @@ app.get('/:randomCode', (req, res) => {
       console.log(err)
       return res.status(422).json(err)
     }
-    return res.redirect(`${origin}`)
-    // return res.redirect('/')
+    // return res.redirect(`${origin}`)
+    return res.redirect('/')
   })
 })
 
